@@ -18,10 +18,10 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
-        {{--<x-banner />--}}
+        <x-banner />
 
-        <div class="min-h-screen bg-gradient-to-br from-orange-300 to-orange-50 p-3">
-            <div class="min-h-screen bg-zinc-50 rounded-lg shadow-lg">
+        <div class="min-h-screen bg-gradient-to-b from-orange-400 to-orange-50 p-3 md:p-10">
+            <div class="min-h-screen bg-white rounded-lg shadow-lg">
                 <main>
                     {{ $slot }}
                 </main>

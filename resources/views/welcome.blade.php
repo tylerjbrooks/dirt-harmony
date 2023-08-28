@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="flex mt-16 w-full border-2 border-black rounded-md overflow-hidden">
-                    @livewire('map')
+                    @livewire('browser')
                 </div>
 
                 <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">

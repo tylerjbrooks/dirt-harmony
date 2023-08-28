@@ -18,28 +18,18 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
-        <x-banner />
+        {{--<x-banner />--}}
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+        <div class="min-h-screen bg-gradient-to-br from-orange-300 to-orange-50 p-3">
+            <div class="min-h-screen bg-zinc-50 rounded-lg shadow-lg">
+                <main>
+                    {{ $slot }}
+                </main>
+            </div>
         </div>
 
         @stack('modals')
-        @stack('scripts)
+        @stack('scripts')
 
         @livewireScripts
     </body>

@@ -1,3 +1,0 @@
-<div>
-    MAP WINDOW
-</div>

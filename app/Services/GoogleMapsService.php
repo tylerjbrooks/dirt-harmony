@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Log;
 
 class GoogleMapsService {
 
-    private $key = null;
+    private static $key = null;
 
     private static function getGoogleMapsKey() {
         if (is_null(self::$key)) {
@@ -43,7 +43,7 @@ class GoogleMapsService {
                             $city = $component['long_name'];
                         } else if (!$city && in_array("administrative_area_level_3", $component['types'])) {
                             $city = $component['long_name'];
-                        } else if !$state && (in_array("administrative_area_level_1", $component['types'])) {
+                        } else if (!$state && in_array("administrative_area_level_1", $component['types'])) {
                             $state = $component['short_name'];
                         } else if (!$zip  && in_array("postal_code", $component['types'])){
                             $zip = $component['long_name'];

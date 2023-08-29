@@ -16,15 +16,53 @@
 
         <!-- Styles -->
         @livewireStyles
+
+        @stack('styles')
     </head>
     <body class="font-sans antialiased">
         <x-banner />
 
         <div class="min-h-screen bg-gradient-to-br from-orange-400 to-orange-50 p-3 md:p-10">
             <div class="min-h-screen bg-white rounded-lg shadow-lg">
-                <main>
-                    {{ $slot }}
-                </main>
+                <div class="py-5">
+                    <div class="max-w-7xl mx-auto sm:px-2 lg:px-4">
+                        @if (Route::has('login'))
+                            <div class="p-6 text-right">
+                                @auth
+                                    <a href="{{ url('/dashboard') }}" class="font-bold text-zinc-500">Dashboard</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="font-bold text-zinc-500">Log in</a>
+                                @endauth
+                            </div>
+                        @endif
+
+                        <div class="min-w-7xl w-full my-6 px-2 md::px-4">
+                            <div class="flex justify-center">
+                                <svg viewBox="106.3505 89.299 215.375 38.1553" width="400" height="70" xmlns="http://www.w3.org/2000/svg">
+                                  <text style="fill: rgb(251,146,60); font-family: Arial, sans-serif; font-size: 34px; font-weight: 700; text-anchor: middle; white-space: pre; text-decoration: underline solid rgba(0, 0, 0, 0.85);" x="214.038" y="120.299">Dirt Harmony</text>
+                                </svg>
+                            </div>
+
+                            <main>
+                                <div class="mt-12 w-full border-2 border-zinc-400 rounded-md overflow-hidden">
+                                    {{ $slot }}
+                                </div>
+                            </main>
+
+                            <div class="flex justify-center mt-6 px-0 sm:items-center sm:justify-between">
+                                <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
+                                    <div class="flex items-center gap-4">
+                                        Dirt Harmony by Tyler Brooks                          
+                                    </div>
+                                </div>
+
+                                <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
+                                    Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

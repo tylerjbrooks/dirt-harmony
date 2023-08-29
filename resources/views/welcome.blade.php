@@ -22,7 +22,7 @@
                     </svg>
                 </div>
 
-                <div class="flex mt-16 w-full border-2 border-black rounded-md overflow-hidden">
+                <div class="flex mt-16 w-full border-2 border-zinc-400 rounded-md overflow-hidden">
                     @livewire('browser')
                 </div>
 

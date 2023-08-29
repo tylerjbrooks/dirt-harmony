@@ -34,6 +34,15 @@
     document.addEventListener('livewire:load', function () { 
         initMap();
     });
+
+    window.addEventListener('updatedMapLocation', function(e) {
+        @this.set('lat', e.detail.lat, true);
+        @this.set('lng', e.detail.lng, true);
+
+        let coord = new google.maps.LatLng(e.detail.lat, e.detail.lng);
+        map.setCenter(coord);
+    });
+
 </script>
 @endpush
 

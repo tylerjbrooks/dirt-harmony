@@ -7,7 +7,7 @@
             <input type="text" class="w-full border-zinc-500" id="search-input" wire:change="search" wire:model.defer="address" />
         </div>
         <div class="flex-none ml-1 md:ml-5">
-            <button type="button" wire:click="search" class="bg-cyan-700 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded">Search</button>
+            <x-harmony.button type="button" wire:click="search">Search</x-harmony.button>
         </div>
     </div>
 </div>

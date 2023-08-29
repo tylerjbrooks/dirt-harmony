@@ -10,12 +10,14 @@ class Search extends Component
     public $address;
 
     public function search() {
-        $res = GoogleMapsService::geocode($this->address);
+        if ($this->address) {
+            $res = GoogleMapsService::geocode($this->address);
 
-        $this->dispatchBrowserEvent('updatedMapLocation', [
-            'lat' => $res['lat'],
-            'lng' => $res['lng'],
-        ]);
+            $this->dispatchBrowserEvent('updatedMapLocation', [
+                'lat' => $res['lat'],
+                'lng' => $res['lng'],
+            ]);
+        }
     }
 
     public function render() {

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 Route::get('/new-dirt', function() {
     return view('new-dirt'); 
 })->name('new-dirt');

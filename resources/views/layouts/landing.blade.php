@@ -38,9 +38,11 @@
 
                         <div class="min-w-7xl w-full my-6 px-2 md::px-4">
                             <div class="flex justify-center">
-                                <svg viewBox="106.3505 89.299 215.375 38.1553" width="400" height="70" xmlns="http://www.w3.org/2000/svg">
-                                  <text style="fill: rgb(251,146,60); font-family: Arial, sans-serif; font-size: 34px; font-weight: 700; text-anchor: middle; white-space: pre; text-decoration: underline solid rgba(0, 0, 0, 0.85);" x="214.038" y="120.299">Dirt Harmony</text>
-                                </svg>
+                                <a href="{{route('welcome')}}">
+                                    <svg viewBox="106.3505 89.299 215.375 38.1553" width="350" height="70" xmlns="http://www.w3.org/2000/svg">
+                                      <text style="fill: rgb(251,146,60); font-family: Arial, sans-serif; font-size: 34px; font-weight: 700; text-anchor: middle; white-space: pre; text-decoration: underline solid rgba(0, 0, 0, 0.85);" x="214.038" y="120.299">Dirt Harmony</text>
+                                    </svg>
+                                </a>
                             </div>
 
                             <main>

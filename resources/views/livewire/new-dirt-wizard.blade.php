@@ -225,15 +225,15 @@
                         <td><strong>{{$phone}}</strong></td>
                     </tr>
                     <tr>
-                        <td>Email</td>
+                        <td>Email:</td>
                         <td><strong>{{$email}}</strong></td>
                     </tr>
                     <tr>
-                        <td>Password</td>
+                        <td>Password:</td>
                         <td><strong>{{$password}}</strong></td>
                     </tr>
                     <tr>
-                        <td>Confirm Password</td>
+                        <td>Confirm Password:</td>
                         <td><strong>{{$confirmPassword}}</strong></td>
                     </tr>
                 </table>

@@ -77,15 +77,14 @@ class NewDirtWizard extends Component
 
     public function fifthStepSubmit() {
         $validatedData = $this->validate([
-            'name'             => 'required',
-            'username'         => 'required',
-            'phone'            => 'required',
-            'email'            => 'required',
-            'password'         => 'required',
-            'confirm_password' => 'required',
+            'name'            => 'required',
+            'username'        => 'required',
+            'phone'           => 'required',
+            'email'           => 'required',
+            'password'        => 'required',
+            'confirmPassword' => 'required',
         ]);
  
-        $this->currentStep = 6;
         $this->currentStep += 1;
     }
 

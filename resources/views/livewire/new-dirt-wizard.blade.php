@@ -36,7 +36,7 @@
     </div>
 
     <!-- Step 1 -->
-    <div class="row setup-content {{ $currentStep != 1 ? 'displayNone' : '' }}" id="step-1">
+    <div class="row {{ $currentStep != 1 ? 'displayNone' : '' }}" id="step-1">
         <div class="col-xs-12">
             <div class="col-md-12">
                 <h3> Step 1</h3>
@@ -46,13 +46,13 @@
                     <input type="text" wire:model="postType" class="form-control" id="post_type">
                     @error('postType') <span class="error">{{ $message }}</span> @enderror
                 </div>
-                <button class="btn btn-primary nextBtn btn-lg pull-right" wire:click="firstStepSubmit" type="button" >Next</button>
+                <button class="btn btn-primary btn-lg pull-right" wire:click="firstStepSubmit" type="button" >Next</button>
             </div>
         </div>
     </div>
 
     <!-- Step 2 -->
-    <div class="row setup-content {{ $currentStep != 2 ? 'displayNone' : '' }}" id="step-2">
+    <div class="row {{ $currentStep != 2 ? 'displayNone' : '' }}" id="step-2">
         <div class="col-xs-12">
             <div class="col-md-12">
                 <h3> Step 2</h3>
@@ -73,14 +73,14 @@
                     @error('range') <span class="error">{{ $message }}</span> @enderror
                 </div>
   
-                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" wire:click="secondStepSubmit">Next</button>
-                <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                <button class="btn btn-primary btn-lg pull-right" type="button" wire:click="secondStepSubmit">Next</button>
             </div>
         </div>
     </div>
 
     <!-- Step 3 -->
-    <div class="row setup-content {{ $currentStep != 3 ? 'displayNone' : '' }}" id="step-3">
+    <div class="row {{ $currentStep != 3 ? 'displayNone' : '' }}" id="step-3">
         <div class="col-xs-12">
             <div class="col-md-12">
                 <h3> Step 3</h3>
@@ -101,14 +101,14 @@
                     @error('dirtQuality') <span class="error">{{ $message }}</span> @enderror
                 </div>
   
-                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" wire:click="thirdStepSubmit">Next</button>
-                <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                <button class="btn btn-primary btn-lg pull-right" type="button" wire:click="thirdStepSubmit">Next</button>
             </div>
         </div>
     </div>
 
     <!-- Step 4 -->
-    <div class="row setup-content {{ $currentStep != 4 ? 'displayNone' : '' }}" id="step-4">
+    <div class="row {{ $currentStep != 4 ? 'displayNone' : '' }}" id="step-4">
         <div class="col-xs-12">
             <div class="col-md-12">
                 <h3> Step 4</h3>
@@ -119,14 +119,14 @@
                     @error('description') <span class="error">{{ $message }}</span> @enderror
                 </div>
   
-                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" wire:click="fourthStepSubmit">Next</button>
-                <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                <button class="btn btn-primary btn-lg pull-right" type="button" wire:click="fourthStepSubmit">Next</button>
             </div>
         </div>
     </div>
 
     <!-- Step 5 -->
-    <div class="row setup-content {{ $currentStep != 5 ? 'displayNone' : '' }}" id="step-5">
+    <div class="row {{ $currentStep != 5 ? 'displayNone' : '' }}" id="step-5">
         <div class="col-xs-12">
             <div class="col-md-12">
                 <h3> Step 5</h3>
@@ -167,14 +167,14 @@
                     @error('confirmPassword') <span class="error">{{ $message }}</span> @enderror
                 </div>
   
-                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" wire:click="fifthStepSubmit">Next</button>
-                <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                <button class="btn btn-primary btn-lg pull-right" type="button" wire:click="fifthStepSubmit">Next</button>
             </div>
         </div>
     </div>
 
     <!-- Step 6: Summary -->
-    <div class="row setup-content {{ $currentStep != 6 ? 'displayNone' : '' }}" id="step-6">
+    <div class="row {{ $currentStep != 6 ? 'displayNone' : '' }}" id="step-6">
         <div class="col-xs-12">
             <div class="col-md-12">
                 <h3> Step 6</h3>
@@ -238,8 +238,8 @@
                     </tr>
                 </table>
   
+                <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="back(2)">Back</button>
                 <button class="btn btn-success btn-lg pull-right" wire:click="submitForm" type="button">Finish!</button>
-                <button class="btn btn-danger nextBtn btn-lg pull-right" type="button" wire:click="back(2)">Back</button>
             </div>
         </div>
     </div>

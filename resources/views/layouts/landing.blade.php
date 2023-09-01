@@ -24,7 +24,7 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-gradient-to-br from-orange-400 to-orange-50 p-3 md:p-10">
+        <div class="min-h-screen bg-gradient-to-br from-orange-600 to-orange-50 p-3 md:p-10">
             <div class="min-h-screen bg-white rounded-lg shadow-lg">
                 <div class="py-5">
                     <div class="max-w-7xl mx-auto sm:px-2 lg:px-4">
@@ -74,9 +74,5 @@
         @stack('scripts')
 
         @livewireScripts
-
-<script>
-axios.get('/').then(function(res) {});
-</script>
     </body>
 </html>

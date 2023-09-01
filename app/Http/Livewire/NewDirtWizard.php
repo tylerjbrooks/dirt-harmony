@@ -6,8 +6,33 @@ use Livewire\Component;
 
 class NewDirtWizard extends Component
 {
-    public $currentStep    = 1;
+    public $currentStep    = 0;
+    public $totalSteps     = 5;
+    public $lastStep       = 4;
     public $successMessage = '';
+    public $validates = [
+        [
+            'postType'        => 'required',
+        ],[
+            'title'           => 'required',
+            'address'         => 'required',
+            'range'           => 'required',
+        ],[
+            'quantity'        => 'required',
+            'dirtType'        => 'required',
+            'dirtQuality'     => 'required',
+        ],[
+            'description'     => 'required',
+        ],[
+            'name'            => 'required',
+            'username'        => 'required',
+            'phone'           => 'required',
+            'email'           => 'required',
+            'password'        => 'required',
+            'confirmPassword' => 'required',
+        ],[
+        ]
+    ];
 
     // Step 1
     public $postType;
@@ -39,53 +64,25 @@ class NewDirtWizard extends Component
         return view('livewire.new-dirt-wizard');
     }
 
-    public function firstStepSubmit() {
-        $validatedData = $this->validate([
-            'postType' => 'required',
-        ]);
- 
-        $this->currentStep += 1;
+    public function mount() {
+        $this->currentStep = 0;
+        $this->totalSteps  = 5;
+        $this->lastStep    = $this->totalSteps - 1;
     }
 
-    public function secondStepSubmit() {
-        $validatedData = $this->validate([
-            'title'   => 'required',
-            'address' => 'required',
-            'range'   => 'required',
-        ]);
- 
-        $this->currentStep += 1;
+    public function validatePrev() {
+        $this->withValidator(function ($validator) {
+            $validator->after(function ($validator) {
+                $this->currentStep -= ($this->currentStep > 0) ? 1 : 0;
+                $this->dispatchBrowserEvent('prev');
+            });
+        })->validate($this->validates[$this->currentStep]);
     }
 
-    public function thirdStepSubmit() {
-        $validatedData = $this->validate([
-            'quantity'    => 'required',
-            'dirtType'    => 'required',
-            'dirtQuality' => 'required',
-        ]);
- 
-        $this->currentStep += 1;
-    }
-
-    public function fourthStepSubmit() {
-        $validatedData = $this->validate([
-            'description' => 'required',
-        ]);
- 
-        $this->currentStep += 1;
-    }
-
-    public function fifthStepSubmit() {
-        $validatedData = $this->validate([
-            'name'            => 'required',
-            'username'        => 'required',
-            'phone'           => 'required',
-            'email'           => 'required',
-            'password'        => 'required',
-            'confirmPassword' => 'required',
-        ]);
- 
-        $this->currentStep += 1;
+    public function validateNext() {
+        $validatedData = $this->validate($this->validates[$this->currentStep]);
+        $this->currentStep += ($this->currentStep < $this->lastStep) ? 1 : 0;
+        $this->dispatchBrowserEvent('next');
     }
 
     public function submitForm() {
@@ -122,9 +119,9 @@ class NewDirtWizard extends Component
         $this->quantity        = "";
         $this->dirtType        = "";
         $this->dirtQuality     = "";
-        $this->soilReport      = "";
+        //$this->soilReport      = "";
         $this->description     = "";
-        $this->image           = "";
+        //$this->image           = "";
         $this->name            = "";
         $this->username        = "";
         $this->phone           = "";

@@ -1,7 +1,7 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
-import preset from './vendor/filament/support/tailwind.config.preset'
+import preset from './vendor/filament/support/tailwind.config.preset';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -14,6 +14,7 @@ export default {
         './app/Filament/**/*.php',
         './resources/views/filament/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
+        './node_modules/flowbite/**/*.js',
     ],
 
     theme: {
@@ -24,5 +25,9 @@ export default {
         },
     },
 
-    plugins: [forms, typography],
+    plugins: [
+        forms, 
+        typography,
+        require('flowbite/plugin'),
+    ],
 };

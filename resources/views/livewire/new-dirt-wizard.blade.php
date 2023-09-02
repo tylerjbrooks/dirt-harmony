@@ -1,4 +1,4 @@
-<div class="h-96">
+<div class="h-screen">
    
 @if(!empty($successMessage))
 <div class="alert alert-success">
@@ -35,9 +35,12 @@
         </div>
     </div>
 
-    <!-- Step 1 -->
     <div x-data="{ curStep: @entangle('currentStep') }" x-effect="console.log('curStep: ' + curStep)">
+
+        <!-- start of relative section -->
         <div class="relative w-full">
+
+            <!-- Step 1 -->
             <div class="absolute top-10 flex items-center justify-center w-full" id="step-1" 
                 x-show="curStep == 1"
                 x-transition:enter="transition ease-in-out duration-500 transform"
@@ -59,10 +62,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Step 2 -->
-        <div class="relative flex items-center justify-center w-full">
+            <!-- Step 2 -->
             <div class="absolute top-10 flex items-center justify-center w-full" id="step-2" 
                 x-show="curStep == 2"
                 x-transition:enter="transition ease-in-out duration-500 transform"
@@ -96,188 +97,201 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Step 3 -->
-        <div class="row" 
-            id="step-3" 
-            x-show="curStep == 3" 
-            x-transition.duration.3000ms
-            x-transition.opacity>
-            <div class="col-xs-12">
-                <div class="col-md-12">
-                    <h3> Step 3</h3>
-      
-                    <div class="form-group">
-                        <label for="quantity">Quantity</label>
-                        <input type="text" wire:model="quantity" class="form-control" id="quantity"/>
-                        @error('quantity') <span class="error">{{ $message }}</span> @enderror
+            <!-- Step 3 -->
+            <div class="absolute top-10 flex items-center justify-center w-full" id="step-3" 
+                x-show="curStep == 3"
+                x-transition:enter="transition ease-in-out duration-500 transform"
+                x-transition:enter-start="translate-x-full opacity-0"
+                x-transition:enter-end="translate-x-0 opacity-100"
+                x-transition:leave="transition ease-in-out duration-500"
+                x-transition:leave-start="translate-x-0 opacity-100"
+                x-transition:leave-end="translate-x-full opacity-0">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h3> Step 3</h3>
+          
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="text" wire:model="quantity" class="form-control" id="quantity"/>
+                            @error('quantity') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+                         <div class="form-group">
+                            <label for="dirt_type">Dirt Type</label>
+                            <input type="text" wire:model="dirtType" class="form-control" id="dirt_type"/>
+                            @error('dirtType') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+                          <div class="form-group">
+                            <label for="dirt_quality">Dirt Quality</label>
+                            <input type="text" wire:model="dirtQuality" class="form-control" id="dirt_quality"/>
+                            @error('dirtQuality') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+          
+                        <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                        <button class="btn btn-primary btn-lg pull-right" type="button" wire:click="thirdStepSubmit">Next</button>
                     </div>
-                     <div class="form-group">
-                        <label for="dirt_type">Dirt Type</label>
-                        <input type="text" wire:model="dirtType" class="form-control" id="dirt_type"/>
-                        @error('dirtType') <span class="error">{{ $message }}</span> @enderror
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="absolute top-10 flex items-center justify-center w-full" id="step-4" 
+                x-show="curStep == 4"
+                x-transition:enter="transition ease-in-out duration-500 transform"
+                x-transition:enter-start="translate-x-full opacity-0"
+                x-transition:enter-end="translate-x-0 opacity-100"
+                x-transition:leave="transition ease-in-out duration-500"
+                x-transition:leave-start="translate-x-0 opacity-100"
+                x-transition:leave-end="translate-x-full opacity-0">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h3> Step 4</h3>
+          
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" wire:model="description" class="form-control" id="description"/>
+                            @error('description') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+          
+                        <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                        <button class="btn btn-primary btn-lg pull-right" type="button" wire:click="fourthStepSubmit">Next</button>
                     </div>
-                      <div class="form-group">
-                        <label for="dirt_quality">Dirt Quality</label>
-                        <input type="text" wire:model="dirtQuality" class="form-control" id="dirt_quality"/>
-                        @error('dirtQuality') <span class="error">{{ $message }}</span> @enderror
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="absolute top-10 flex items-center justify-center w-full" id="step-5" 
+                x-show="curStep == 5"
+                x-transition:enter="transition ease-in-out duration-500 transform"
+                x-transition:enter-start="translate-x-full opacity-0"
+                x-transition:enter-end="translate-x-0 opacity-100"
+                x-transition:leave="transition ease-in-out duration-500"
+                x-transition:leave-start="translate-x-0 opacity-100"
+                x-transition:leave-end="translate-x-full opacity-0">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h3> Step 5</h3>
+          
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" wire:model="name" class="form-control" id="name"/>
+                            @error('name') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+          
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" wire:model="username" class="form-control" id="username"/>
+                            @error('username') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+          
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" wire:model="phone" class="form-control" id="phone"/>
+                            @error('phone') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+          
+                        <div class="form-group">
+                            <label for="phone">email</label>
+                            <input type="text" wire:model="email" class="form-control" id="email"/>
+                            @error('email') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+          
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" wire:model="password" class="form-control" id="password"/>
+                            @error('password') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+          
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="text" wire:model="confirmPassword" class="form-control" id="confirm-password"/>
+                            @error('confirmPassword') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+          
+                        <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                        <button class="btn btn-primary btn-lg pull-right" type="button" wire:click="fifthStepSubmit">Next</button>
                     </div>
-      
-                    <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
-                    <button class="btn btn-primary btn-lg pull-right" type="button" wire:click="thirdStepSubmit">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 6: Summary -->
+            <div class="absolute top-10 flex items-center justify-center w-full" id="step-6" 
+                x-show="curStep == 6"
+                x-transition:enter="transition ease-in-out duration-500 transform"
+                x-transition:enter-start="translate-x-full opacity-0"
+                x-transition:enter-end="translate-x-0 opacity-100"
+                x-transition:leave="transition ease-in-out duration-500"
+                x-transition:leave-start="translate-x-0 opacity-100"
+                x-transition:leave-end="translate-x-full opacity-0">
+                <div class="col-xs-12">
+                    <div class="col-md-12">
+                        <h3> Step 6</h3>
+          
+                        <table class="table">
+                            <tr>
+                                <td>Post Type:</td>
+                                <td><strong>{{$postType}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Title:</td>
+                                <td><strong>{{$title}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Address:</td>
+                                <td><strong>{{$address}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Range</td>
+                                <td><strong>{{$range}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Quantity:</td>
+                                <td><strong>{{$quantity}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Dirt Type:</td>
+                                <td><strong>{{$dirtType}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Dirt Quality:</td>
+                                <td><strong>{{$dirtQuality}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Description:</td>
+                                <td><strong>{{$description}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Name:</td>
+                                <td><strong>{{$name}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Username:</td>
+                                <td><strong>{{$username}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Phone:</td>
+                                <td><strong>{{$phone}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td><strong>{{$email}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Password:</td>
+                                <td><strong>{{$password}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Confirm Password:</td>
+                                <td><strong>{{$confirmPassword}}</strong></td>
+                            </tr>
+                        </table>
+          
+                        <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
+                        <button class="btn btn-success btn-lg pull-right" wire:click="submitForm" type="button">Finish!</button>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Step 4 -->
-        <div class="row" 
-            id="step-4" 
-            x-show="curStep == 4"
-            x-transition.duration.3000ms
-            x-transition.opacity>
-            <div class="col-xs-12">
-                <div class="col-md-12">
-                    <h3> Step 4</h3>
-      
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <input type="text" wire:model="description" class="form-control" id="description"/>
-                        @error('description') <span class="error">{{ $message }}</span> @enderror
-                    </div>
-      
-                    <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
-                    <button class="btn btn-primary btn-lg pull-right" type="button" wire:click="fourthStepSubmit">Next</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="row" 
-            id="step-5" 
-            x-show="curStep == 5"
-            x-transition.duration.3000ms
-            x-transition.opacity>
-            <div class="col-xs-12">
-                <div class="col-md-12">
-                    <h3> Step 5</h3>
-      
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" wire:model="name" class="form-control" id="name"/>
-                        @error('name') <span class="error">{{ $message }}</span> @enderror
-                    </div>
-      
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" wire:model="username" class="form-control" id="username"/>
-                        @error('username') <span class="error">{{ $message }}</span> @enderror
-                    </div>
-      
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="text" wire:model="phone" class="form-control" id="phone"/>
-                        @error('phone') <span class="error">{{ $message }}</span> @enderror
-                    </div>
-      
-                    <div class="form-group">
-                        <label for="phone">email</label>
-                        <input type="text" wire:model="email" class="form-control" id="email"/>
-                        @error('email') <span class="error">{{ $message }}</span> @enderror
-                    </div>
-      
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="text" wire:model="password" class="form-control" id="password"/>
-                        @error('password') <span class="error">{{ $message }}</span> @enderror
-                    </div>
-      
-                    <div class="form-group">
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="text" wire:model="confirmPassword" class="form-control" id="confirm-password"/>
-                        @error('confirmPassword') <span class="error">{{ $message }}</span> @enderror
-                    </div>
-      
-                    <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
-                    <button class="btn btn-primary btn-lg pull-right" type="button" wire:click="fifthStepSubmit">Next</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Step 6: Summary -->
-        <div class="row" 
-            id="step-6" 
-            x-show="curStep == 6"
-            x-transition.duration.3000ms
-            x-transition.opacity>
-            <div class="col-xs-12">
-                <div class="col-md-12">
-                    <h3> Step 6</h3>
-      
-                    <table class="table">
-                        <tr>
-                            <td>Post Type:</td>
-                            <td><strong>{{$postType}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Title:</td>
-                            <td><strong>{{$title}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Address:</td>
-                            <td><strong>{{$address}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Range</td>
-                            <td><strong>{{$range}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Quantity:</td>
-                            <td><strong>{{$quantity}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Dirt Type:</td>
-                            <td><strong>{{$dirtType}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Dirt Quality:</td>
-                            <td><strong>{{$dirtQuality}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Description:</td>
-                            <td><strong>{{$description}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Name:</td>
-                            <td><strong>{{$name}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Username:</td>
-                            <td><strong>{{$username}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Phone:</td>
-                            <td><strong>{{$phone}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Email:</td>
-                            <td><strong>{{$email}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Password:</td>
-                            <td><strong>{{$password}}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Confirm Password:</td>
-                            <td><strong>{{$confirmPassword}}</strong></td>
-                        </tr>
-                    </table>
-      
-                    <button class="btn btn-danger btn-lg pull-right" type="button" wire:click="backOne()">Back</button>
-                    <button class="btn btn-success btn-lg pull-right" wire:click="submitForm" type="button">Finish!</button>
-                </div>
-            </div>
-        </div>
+        <!-- end of relative section -->
     </div>
 </div>
 

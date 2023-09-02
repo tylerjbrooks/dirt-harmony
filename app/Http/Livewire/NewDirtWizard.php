@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class NewDirtWizard extends Component
 {
-    public $currentStep    = 1;
+    public int $currentStep    = 1;
     public $successMessage = '';
 
     // Step 1

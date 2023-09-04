@@ -6,8 +6,9 @@ use Livewire\Component;
 
 class NewDirtWizard extends Component
 {
-    public int $currentStep    = 1;
-    public $successMessage = '';
+    public bool $forward    = true;
+    public int $currentStep = 1;
+    public $successMessage  = '';
 
     // Step 1
     public $postType;
@@ -44,6 +45,7 @@ class NewDirtWizard extends Component
             'postType' => 'required',
         ]);
  
+        $this->forward      = true;
         $this->currentStep += 1;
     }
 
@@ -54,6 +56,7 @@ class NewDirtWizard extends Component
             'range'   => 'required',
         ]);
  
+        $this->forward      = true;
         $this->currentStep += 1;
     }
 
@@ -64,6 +67,7 @@ class NewDirtWizard extends Component
             'dirtQuality' => 'required',
         ]);
  
+        $this->forward      = true;
         $this->currentStep += 1;
     }
 
@@ -72,6 +76,7 @@ class NewDirtWizard extends Component
             'description' => 'required',
         ]);
  
+        $this->forward      = true;
         $this->currentStep += 1;
     }
 
@@ -85,6 +90,7 @@ class NewDirtWizard extends Component
             'confirmPassword' => 'required',
         ]);
  
+        $this->forward      = true;
         $this->currentStep += 1;
     }
 
@@ -107,11 +113,13 @@ class NewDirtWizard extends Component
     }
   
     public function back($step) {
+        $this->forward = $step >= $this-currentStep;
         $this->currentStep = $step;    
     }
   
     public function backOne() {
-        $this->currentStep -= 1;    
+        $this->forward = false;
+        $this->currentStep -= 1;
     }
   
     public function clearForm() {

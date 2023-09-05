@@ -40,7 +40,7 @@
 
         <!-- Step 1 -->
         <div 
-            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-0 slide"
+            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-0 opacity-100 slide"
             id="step-1">
             <div class="col-xs-12">
                 <div class="col-md-12">
@@ -57,7 +57,7 @@
 
         <!-- Step 2 -->
         <div 
-            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-full slide"
+            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-full opacity-0 slide"
             id="step-2">
             <div class="col-xs-12">
                 <div class="col-md-12">
@@ -84,7 +84,7 @@
 
         <!-- Step 3 -->
         <div 
-            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-full slide"
+            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-full opacity-0 slide"
             id="step-3">
             <div class="col-xs-12">
                 <div class="col-md-12">
@@ -111,7 +111,7 @@
 
         <!-- Step 4 -->
         <div 
-            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-full slide"
+            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-full opacity-0 slide"
             id="step-4">
             <div class="col-xs-12">
                 <div class="col-md-12">
@@ -128,7 +128,7 @@
 
         <!-- Step 5 -->
         <div 
-            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-full slide"
+            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-full opacity-0 slide"
             id="step-5">
             <div class="col-xs-12">
                 <div class="col-md-12">
@@ -175,7 +175,7 @@
 
         <!-- Step 6: Summary -->
         <div 
-            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-full slide"
+            class="absolute top-10 flex items-center justify-center w-full transition ease-in-out duration-500 transition-all ease-in-out duration-1000 transform translate-x-full opacity-0 slide"
             id="step-6">
             <div class="col-xs-12">
                 <div class="col-md-12">
@@ -258,9 +258,13 @@ function nextSlide(){
     if (activeSlide && nextSlide) {
         activeSlide.classList.remove('translate-x-0');
         activeSlide.classList.add('-translate-x-full');
+        activeSlide.classList.remove('opacity-100');
+        activeSlide.classList.add('opacity-0');
         
         nextSlide.classList.remove('translate-x-full');
         nextSlide.classList.add('translate-x-0');
+        nextSlide.classList.remove('opacity-0');
+        nextSlide.classList.add('opacity-100');
     }
 }
 
@@ -271,9 +275,13 @@ function previousSlide(){
     if (activeSlide && previousSlide) {
         activeSlide.classList.remove('translate-x-0');
         activeSlide.classList.add('translate-x-full');
+        activeSlide.classList.remove('opacity-100');
+        activeSlide.classList.add('opacity-0');
         
         previousSlide.classList.remove('-translate-x-full');
         previousSlide.classList.add('translate-x-0');
+        previousSlide.classList.remove('opacity-0');
+        previousSlide.classList.add('opacity-100');
     }
 }
 </script>
